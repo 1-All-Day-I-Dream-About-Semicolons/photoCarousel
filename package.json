@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seed.js",
+    "start": "node server/index.js",
+    "react-dev": "webpack --watch",
+    "server-dev": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,25 @@
   "bugs": {
     "url": "https://github.com/1-All-Day-I-Dream-About-Semicolons/photoCarousel/issues"
   },
-  "homepage": "https://github.com/1-All-Day-I-Dream-About-Semicolons/photoCarousel#readme"
+  "homepage": "https://github.com/1-All-Day-I-Dream-About-Semicolons/photoCarousel#readme",
+  "dependencies": {
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "axios": "^0.21.0",
+    "babel-loader": "^8.1.0",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.2",
+    "express": "^4.15.0",
+    "jquery": "^3.5.1",
+    "mongoose": "^4.9.6",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router-dom": "^5.2.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3"
+  }
 }

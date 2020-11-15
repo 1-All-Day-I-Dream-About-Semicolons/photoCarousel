@@ -8,19 +8,53 @@ db.once('open', () => {
 });
 
 const productSchema = new mongoose.Schema({
+    id: Number,
     name: String,
-    photos: String
+    photos: [{
+        color: String,
+        urls: [String]
+    }]
 });
+
+/*
+GET request id 1:
+{
+    id: 1,
+    name: mensSoccerPants,
+    photos: [
+        {
+            color: black,
+            urls: [
+                'url', 'url'...
+            ]
+        },
+        {
+            color: red,
+            urls: [
+                'url', 'url'...
+            ]
+        }
+    ]
+}
+*/
 
 let Product = mongoose.model('Product', productSchema);
 
-const insertOne = (name, photos) => {
+const insertOne = (id, name, photos) => {
     var product = new Product({
+        id: id,
         name: name,
         photos: photos
     });
     product.save();
 }
 
+Product.find();
+
+// const find = () => {
+//     this.product.find();
+// }
+
 module.exports.product = Product;
 module.exports.insertOne = insertOne;
+// module.exports.find = find;
