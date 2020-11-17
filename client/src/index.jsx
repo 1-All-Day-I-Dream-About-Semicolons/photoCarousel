@@ -12,30 +12,13 @@ class App extends React.Component {
         }
     }
 
-    componentWillMount () {
-        axios.get(`/api/product/${this.state.productId}`)
-        .then(res => {
-            var data = res.data[0];
-            // console.log(data);
-            this.setState({
-                id: data.id,
-                name: data.name,
-                color: 0,
-                photo: 0,
-                photos: data.photos[this.state.color].urls
-            });
-            console.log(this.state);
-        });
-    }
-
     render() {
         return (
             <div>
-                <Window image={this.state.photos[this.state.photo]} />
-                <button onClick={this.nextPhoto} >Next</button>
+                <Window id={this.state.productId} colorIndex={0} photoIndex={0} />
             </div>
         )
     }
 }
 
-ReactDOM.render(<App id={1} />, document.getElementById('app'));
+ReactDOM.render(<App id={50} />, document.getElementById('app'));
