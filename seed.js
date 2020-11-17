@@ -3,8 +3,7 @@ const db = require('./db/index.js');
 
 const seedDatabase = (obj) => {
     var keys = Object.keys(obj);
-    // only adding 5 product for now, will change to 100 later
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 100; i++) {
         var randomIndex = Math.floor(Math.random() * keys.length);
         var name = keys[randomIndex];
         var photos = obj[name];
