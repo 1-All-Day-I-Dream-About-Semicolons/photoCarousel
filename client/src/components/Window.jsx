@@ -1,5 +1,8 @@
 import React from 'react';
+// import ColorSelector from './ColorSelector.jsx';
+// import View from './View.jsx';
 import axios from 'axios';
+
 
 class Window extends React.Component {
     constructor(props) {
@@ -23,7 +26,8 @@ class Window extends React.Component {
 
     fetch (id) {
         axios.get(`/api/product/${id}`)
-        .then((res) => {
+        .then(res => {
+            console.log('successful get request');
             var data = res.data[0];
             console.log('data:');
             console.log(data);
@@ -31,10 +35,26 @@ class Window extends React.Component {
                 overallData: data,
                 photos: data.photos[this.state.colorIndex].urls
             });
+            console.log(`Window's state:`);
+            console.log(this.state);
         })
         .catch((err) => {
+            console.log('error');
             res.send(err);
         });
+    }
+
+    colorSelector () {
+        var colors = this.state.overallData.photos;
+        if (this.state.colorIndex === colors.length - 1) {
+            this.setState({
+                colorIndex: 0
+            });
+        } else {
+            this.setState({
+                colorIndex: this.state.colorIndex + 1
+            });
+        }
     }
 
     nextPhoto () {
@@ -66,9 +86,14 @@ class Window extends React.Component {
         var last = '<';
         return (
             <div>
-                <button onClick={this.previousPhoto} >{last}</button>
-                <img src={this.state.photos[this.state.photoIndex]} ></img>
-                <button onClick={this.nextPhoto} >{next}</button>
+                <div>
+                    <button onClick={this.previousPhoto} >{last}</button>
+                    <img src={this.state.photos[this.state.photoIndex]} ></img>
+                    <button onClick={this.nextPhoto} >{next}</button>
+                </div>
+                <div>
+                    <button onClick={this.colorSelector} >Next Color </button>
+                </div>
             </div>
         )
     }
