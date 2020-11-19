@@ -2,16 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Window from './components/Window.jsx';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const Button = styled.button`
+    background: transparent;
+    border-radius: 3px;
+    border: 2px solid palevioletred;
+    color: palevioletred;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+`;
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
             productId: this.props.id,
             isLoading: true
         }
-
+        
         this.fetch = this.fetch.bind(this);
     }
 
@@ -42,6 +52,7 @@ class App extends React.Component {
         } else {
             return (
                 <div>
+                    <Button/>
                     <Window data={this.state.productData.photos} />
                 </div>
             )
@@ -49,4 +60,5 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App id={100} />, document.getElementById('app'));
+ReactDOM.render(<App id={1} />, document.getElementById('app'));
+// ReactDOM.render(<Button />, document.getElementById('app'));

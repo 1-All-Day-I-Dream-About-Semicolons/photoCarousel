@@ -1,4 +1,5 @@
 import React from 'react';
+import IconList from './IconList.jsx';
 
 class View extends React.Component {
     constructor(props) {
@@ -14,13 +15,11 @@ class View extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('View nextProps:');
-        console.log(nextProps);
         this.setState({ 
             photos: nextProps.photos.urls,
             photoIndex: 0
         });
-      }
+    }
 
     nextPhoto () {
         if (this.state.photoIndex === this.state.photos.length - 1) {
@@ -54,6 +53,7 @@ class View extends React.Component {
                 <button onClick={this.previousPhoto} >{last}</button>
                 <img src={this.state.photos[this.state.photoIndex]} ></img>
                 <button onClick={this.nextPhoto} >{next}</button>
+                {/* <IconList photos={this.state.photos} /> */}
             </div>
         )
     }

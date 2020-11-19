@@ -18,6 +18,7 @@ class ColorSelector extends React.Component {
                     <View photos={this.state.colorsAndPhotos[this.state.colorIndex]}/>
                 </div>
                 <div>
+                    <div>{this.state.colorsAndPhotos.length} colors available:</div>
                     {this.state.colorsAndPhotos.map((color) => (
                         <button onClick={()=> {
                             console.log(color.color);
