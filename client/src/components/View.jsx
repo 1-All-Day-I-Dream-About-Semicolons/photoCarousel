@@ -1,5 +1,74 @@
 import React from 'react';
 import IconList from './IconList.jsx';
+import PhotoDisplay from './PhotoDisplay.jsx';
+import styled from 'styled-components';
+
+// #ebeef0
+
+const LeftButton = styled.button`
+    cursor: pointer;
+    font-size: 20px;
+    height: 60px;
+    width: 60px;
+    border: 2px solid black;
+    background-color: white;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+    position: absolute;
+    bottom: 400px;
+    right: 90%;
+`;
+
+const RightButton = styled.button`
+    cursor: pointer;
+    font-size: 20px;
+    height: 60px;
+    width: 60px;
+    border: 2px solid black;
+    background-color: white;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+    position: absolute;
+    bottom: 400px;
+    right: 5%;
+`;
+
+const MainView = styled.div`
+    position: relative;
+`;
+
+const CornerLinks = styled.div`
+    display: flex;
+    position: absolute;
+    bottom: 90%;
+    right: 80%;
+`;
+
+const CornerLink = styled.span`
+    font-family: Arial;
+    text-decoration: underline;
+    color: black;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 25%;
+    float: right;
+    margin: 0px 10px;
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+`;
+
+const CouponCode = styled.div`
+    background-color: white;
+    color: black;
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 2%;
+    bottom: 85%;
+    font-family: Verdana, sans-serif;
+`;
 
 class View extends React.Component {
     constructor(props) {
@@ -12,12 +81,19 @@ class View extends React.Component {
 
         this.nextPhoto = this.nextPhoto.bind(this);
         this.previousPhoto = this.previousPhoto.bind(this);
+        this.changePhoto = this.changePhoto.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({ 
             photos: nextProps.photos.urls,
             photoIndex: 0
+        });
+    }
+
+    changePhoto (index) {
+        this.setState({
+            photoIndex: index
         });
     }
 
@@ -46,14 +122,27 @@ class View extends React.Component {
     }
 
     render() {
-        var last = '<';
-        var next = '>';
+        var last = '←';
+        var next = '→';
         return (
             <div>
-                <button onClick={this.previousPhoto} >{last}</button>
-                <img src={this.state.photos[this.state.photoIndex]} ></img>
-                <button onClick={this.nextPhoto} >{next}</button>
-                {/* <IconList photos={this.state.photos} /> */}
+                <MainView>
+                    <CornerLinks>
+                        <div>↰</div>
+                        <CornerLink>BACK</CornerLink>
+                        <div>        </div>
+                        <CornerLink>Home</CornerLink>
+                        <div>/</div>
+                        <CornerLink>Men</CornerLink>
+                        <div>/</div>
+                        <CornerLink>Accessories</CornerLink>
+                    </CornerLinks>
+                    <CouponCode>-30% CODE GETSHOES</CouponCode>
+                    <LeftButton onClick={this.previousPhoto} >{last}</LeftButton>
+                    <RightButton onClick={this.nextPhoto} >{next}</RightButton>
+                    <PhotoDisplay image={this.state.photos[this.state.photoIndex]} ></PhotoDisplay>
+                    <IconList currentPhoto={this.state.photoIndex} changePhoto={this.changePhoto} photos={this.state.photos} ></IconList>
+                </MainView>
             </div>
         )
     }

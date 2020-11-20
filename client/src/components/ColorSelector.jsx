@@ -1,5 +1,53 @@
 import React from 'react';
 import View from './View.jsx';
+import IconList from './IconList.jsx';
+import styled from 'styled-components';
+
+const Icon = styled.div`
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+    display: inline-block;
+`;
+
+const Image = styled.img`
+    height: 100%;
+    width: 100%;
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    ${props => (props.active) ? `border-bottom: 3px solid black;` : `border-bottom: 3px solid white;`}
+`;
+
+const Selector = styled.div`
+    font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    position: relative;
+    color: black;
+    display: block;
+    height: 100px;
+    text-align: center;
+    background-color: white;
+    margin-top: 20px;
+    height: 75px;
+`;
+
+const Colors = styled.div`
+    font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    position: absolute;
+    right: 60%;
+    bottom: 50%;
+`;
+
+const Available = styled.div`
+    font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    position: absolute;
+    right: 60%;
+    bottom: 30%;
+`;
 
 class ColorSelector extends React.Component {
     constructor(props) {
@@ -17,17 +65,19 @@ class ColorSelector extends React.Component {
                 <div>
                     <View photos={this.state.colorsAndPhotos[this.state.colorIndex]}/>
                 </div>
-                <div>
-                    <div>{this.state.colorsAndPhotos.length} colors available:</div>
-                    {this.state.colorsAndPhotos.map((color) => (
-                        <button onClick={()=> {
-                            console.log(color.color);
+                <Selector>
+                    <Colors>{this.state.colorsAndPhotos.length} colors</Colors>
+                    <Available>available</Available>
+                    {this.state.colorsAndPhotos.map((color, index) => (
+                        <Icon onClick={()=> {
                             this.setState({
                                 colorIndex: this.state.colorsAndPhotos.indexOf(color)
                             })
-                        }}>{color.color}</button>
+                        }}>
+                            <Image src={color.urls[0]} active={index === this.state.colorIndex ? true : false} ></Image>
+                        </Icon>
                     ))}
-                </div>
+                </Selector>
             </div>
         )
     }
