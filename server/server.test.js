@@ -1,16 +1,6 @@
 const request = require("supertest");
 const app = require('./app.js');
 
-describe('Test the root path', () => {
-    test('It should respond with a status of 200 for the root path', () => {
-        return request(app)
-        .get('/')
-        .then(response => {
-            expect(response.statusCode).toBe(200);
-        });
-    });
-});
-
 describe('Test the "products" path', () => {
     test('It should respond with an array of all 100 products in the database and every product should be an object', () => {
         return request(app)
@@ -43,10 +33,20 @@ describe('Test the "products" path', () => {
     });
 });
 
-describe('Test the "product/:id" path', () => {
+describe('Test the "products/:id" path', () => {
     test('It should respond with the correct product based on the given id', () => {
         return request(app)
-        .get('/api/product/1')
+        .get('/products/1')
+        .then(response => {
+            expect(response.statusCode).toBe(301);
+        });
+    });
+});
+
+describe('Test the "/api/products/:id" path', () => {
+    test('It should respond with the JSON data for the correct product based on the given id', () => {
+        return request(app)
+        .get('/api/products/1')
         .then(response => {
             var result = JSON.parse(response.text);
             expect(Array.isArray(result)).toBe(true);

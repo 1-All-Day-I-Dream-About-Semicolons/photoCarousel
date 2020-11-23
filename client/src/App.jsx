@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Window from './components/Window.jsx';
 import axios from 'axios';
-// import IconList from './components/IconList.jsx';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
+
+        var pathname = window.location.pathname;
+        pathname = pathname.split('/');
+        var id = pathname[2];
         
         this.state = {
-            productId: this.props.id,
+            productId: id,
             isLoading: true
         }
         
@@ -21,7 +24,7 @@ class App extends React.Component {
     }
 
     fetch (id) {
-        axios.get(`/api/product/${id}`)
+        axios.get(`/api/products/${id}`)
         .then((res) => {
             var data = res.data[0];
             console.log('successfully grabbed data');
@@ -50,4 +53,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App id={1}/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));

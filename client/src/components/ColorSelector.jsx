@@ -34,7 +34,9 @@ const Selector = styled.div`
 `;
 
 const Colors = styled.div`
-    font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+    font-family: AdihausDIN, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 15px;
     font-weight: bold;
     position: absolute;
     right: 60%;
@@ -42,7 +44,9 @@ const Colors = styled.div`
 `;
 
 const Available = styled.div`
-    font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+    font-family: AdihausDIN, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 15px;
     font-weight: bold;
     position: absolute;
     right: 60%;
@@ -61,11 +65,11 @@ class ColorSelector extends React.Component {
 
     render() {
         return (
-            <div>
-                <div>
+            <div id="mainContainer" >
+                <div id="view" >
                     <View photos={this.state.colorsAndPhotos[this.state.colorIndex]}/>
                 </div>
-                <Selector>
+                <Selector id="styledSelector" >
                     <Colors>{this.state.colorsAndPhotos.length} colors</Colors>
                     <Available>available</Available>
                     {this.state.colorsAndPhotos.map((color, index) => (

@@ -12,7 +12,7 @@ class Window extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="colorSelector" >
                 <ColorSelector colorsAndPhotos={this.state.colorsAndPhotos} />
             </div>
         )

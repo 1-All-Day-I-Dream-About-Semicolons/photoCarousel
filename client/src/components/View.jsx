@@ -42,6 +42,10 @@ const CornerLinks = styled.div`
     position: absolute;
     bottom: 90%;
     right: 80%;
+    font-family: AdihausDIN, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: normal;
+
 `;
 
 const CornerLink = styled.span`
@@ -63,11 +67,12 @@ const CornerLink = styled.span`
 const CouponCode = styled.div`
     background-color: white;
     color: black;
+    font-family: AdihausDIN, Helvetica, Arial, sans-serif;
     transform: rotate(-90deg);
     position: absolute;
     right: 2%;
     bottom: 85%;
-    font-family: Verdana, sans-serif;
+    font-family: AdihausDIN, Helvetica, Arial, sans-serif;
 `;
 
 class View extends React.Component {

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const db = require('../db/index.js');
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use('/products/:id', express.static(__dirname + '/../client/dist'));
 
 app.get('/api/products', (req, res) => {
     db.product.find((err, data) => {
@@ -14,7 +14,7 @@ app.get('/api/products', (req, res) => {
     });
 });
 
-app.get('/api/product/:id', function(req, res) {
+app.get('/api/products/:id', (req, res) => {
     var id = req.params.id;
     if (id > 100 || id < 1) {
         res.sendStatus(404);
