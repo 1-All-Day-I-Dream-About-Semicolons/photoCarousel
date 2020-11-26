@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
+const morgan = require('morgan');
 const db = require('../db/index.js');
 
-app.use('/products/:id', express.static(__dirname + '/../client/dist'));
+app.use(morgan('dev'));
+app.use('/photos/:id', express.static(__dirname + '/../client/dist'));
+// app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/api/products', (req, res) => {
+app.get('*/:id/photos', (req, res) => {
     db.product.find((err, data) => {
         if (err) {
             res.send(err);
@@ -14,7 +17,7 @@ app.get('/api/products', (req, res) => {
     });
 });
 
-app.get('/api/products/:id', (req, res) => {
+app.get('*/:id/photos', (req, res) => {
     var id = req.params.id;
     if (id > 100 || id < 1) {
         res.sendStatus(404);

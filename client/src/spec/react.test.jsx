@@ -1,7 +1,6 @@
 import React from 'react'
 import Window from '../components/Window.jsx';
 import ColorSelector from '../components/ColorSelector.jsx';
-import View from '../components/View.jsx';
 import Enzyme, { mount, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16';
 

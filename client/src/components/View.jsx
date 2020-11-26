@@ -34,6 +34,9 @@ const RightButton = styled.button`
 `;
 
 const MainView = styled.div`
+    background-color: #ebeef0;
+    width: 1400px;
+    height: 840px;
     position: relative;
 `;
 

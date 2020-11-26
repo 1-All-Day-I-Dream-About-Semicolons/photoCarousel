@@ -10,25 +10,25 @@ class App extends React.Component {
         var pathname = window.location.pathname;
         pathname = pathname.split('/');
         var id = pathname[2];
+        console.log(window.location);
+        console.log(id);
         
         this.state = {
-            productId: id,
+            productId: id || 1,
             isLoading: true
         }
         
         this.fetch = this.fetch.bind(this);
     }
 
-    componentWillMount () {
+    componentDidMount () {
         this.fetch(this.state.productId);
     }
 
     fetch (id) {
-        axios.get(`/api/products/${id}`)
+        axios.get(`${id}/photos`)
         .then((res) => {
             var data = res.data[0];
-            console.log('successfully grabbed data');
-            console.log(data);
             this.setState({
                 productData: data,
                 isLoading: false
@@ -53,4 +53,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('service1'));
