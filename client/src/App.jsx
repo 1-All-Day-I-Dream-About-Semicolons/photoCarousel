@@ -4,11 +4,10 @@ import Window from './components/Window.jsx';
 import axios from 'axios';
 import styled from 'styled-components';
 
-// const AppContainer = styled.div`
-//     display: flex;
-//     justify-content: flex-start;
-//     width: 100%;
-// `;
+const AppContainer = styled.div`
+    width: 100%;
+    height: auto;
+`;
 
 class App extends React.Component {
     constructor(props) {
@@ -56,9 +55,9 @@ class App extends React.Component {
             return <div>loading data...</div>
         } else {
             return (
-                <div>
+                <AppContainer id={"AppContainer"} >
                     <Window data={this.state.productData.photos} />
-                </div>
+                </AppContainer>
             )
         }
     }

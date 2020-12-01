@@ -15,8 +15,8 @@ const LeftButton = styled.button`
     margin: 0 1em;
     padding: 0.25em 1em;
     position: absolute;
-    bottom: 400px;
-    right: 90%;
+    bottom: 50%;
+    right: 85%;
 `;
 
 const RightButton = styled.button`
@@ -29,16 +29,14 @@ const RightButton = styled.button`
     margin: 0 1em;
     padding: 0.25em 1em;
     position: absolute;
-    bottom: 400px;
-    right: -80%;
+    bottom: 50%;
+    right: 10%;
 `;
 
 const MainView = styled.div`
-    width: 70%;
-    position: relative;
+    width: 100%;
+    height: auto;
 `;
-    // width: 1400px;
-    // height: 840px;
     
 const CornerLinks = styled.div`
     display: flex;
