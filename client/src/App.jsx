@@ -2,6 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Window from './components/Window.jsx';
 import axios from 'axios';
+import styled from 'styled-components';
+
+// const AppContainer = styled.div`
+//     display: flex;
+//     justify-content: flex-start;
+//     width: 100%;
+// `;
 
 class App extends React.Component {
     constructor(props) {
@@ -14,7 +21,7 @@ class App extends React.Component {
         console.log(id);
         
         this.state = {
-            productId: id || 1,
+            productId: id,
             isLoading: true
         }
         
@@ -26,9 +33,13 @@ class App extends React.Component {
     }
 
     fetch (id) {
+        console.log('id in fetch:');
+        console.log(id);
         axios.get(`${id}/photos`)
         .then((res) => {
             var data = res.data[0];
+            console.log('data:');
+            console.log(data);
             this.setState({
                 productData: data,
                 isLoading: false

@@ -30,21 +30,21 @@ const RightButton = styled.button`
     padding: 0.25em 1em;
     position: absolute;
     bottom: 400px;
-    right: 5%;
+    right: -80%;
 `;
 
 const MainView = styled.div`
-    background-color: #ebeef0;
-    width: 1400px;
-    height: 840px;
+    width: 70%;
     position: relative;
 `;
-
+    // width: 1400px;
+    // height: 840px;
+    
 const CornerLinks = styled.div`
     display: flex;
     position: absolute;
     bottom: 90%;
-    right: 80%;
+    right: 70%;
     font-family: AdihausDIN, Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: normal;
@@ -73,7 +73,7 @@ const CouponCode = styled.div`
     font-family: AdihausDIN, Helvetica, Arial, sans-serif;
     transform: rotate(-90deg);
     position: absolute;
-    right: 2%;
+    right: -90%;
     bottom: 85%;
     font-family: AdihausDIN, Helvetica, Arial, sans-serif;
 `;

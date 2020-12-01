@@ -21,6 +21,7 @@ const Image = styled.img`
 const List = styled.div`
     background-color: white;
     height: 0px;
+    width: 100%;
     text-align: center;
 `;
 

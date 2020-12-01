@@ -39,7 +39,7 @@ const Colors = styled.div`
     line-height: 15px;
     font-weight: bold;
     position: absolute;
-    right: 60%;
+    right: 70%;
     bottom: 50%;
 `;
 
@@ -49,7 +49,7 @@ const Available = styled.div`
     line-height: 15px;
     font-weight: bold;
     position: absolute;
-    right: 60%;
+    right: 70%;
     bottom: 30%;
 `;
 
