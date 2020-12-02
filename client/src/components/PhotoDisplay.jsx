@@ -1,9 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { CSSTransitionGroup } from 'react-transition-group';
-
-const appearDuration = 500;
-const transitionName = `slide`;
 
 const Img = styled.img`
     cursor: pointer;
@@ -33,12 +29,7 @@ class PhotoDisplay extends React.Component {
     
     render() {
         return (
-            <CSSTransitionGroup
-                transitionName={transitionName}
-                transitionAppear={true}
-                transitionAppearTimeout={appearDuration}>
-                <Img src={this.state.image} ></Img>
-            </CSSTransitionGroup>
+            <Img src={this.state.image} />
         )
     }
 }

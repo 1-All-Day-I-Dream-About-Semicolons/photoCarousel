@@ -146,7 +146,7 @@ class View extends React.Component {
                     <CouponCode>-30% CODE GETSHOES</CouponCode>
                     <LeftButton onClick={this.previousPhoto} >{last}</LeftButton>
                     <RightButton onClick={this.nextPhoto} >{next}</RightButton>
-                    <PhotoDisplay image={this.state.photos[this.state.photoIndex]} ></PhotoDisplay>
+                    <PhotoDisplay image={this.state.photos[this.state.photoIndex]}></PhotoDisplay>
                     <IconList currentPhoto={this.state.photoIndex} changePhoto={this.changePhoto} photos={this.state.photos} ></IconList>
                 </MainView>
             </div>

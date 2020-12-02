@@ -55,9 +55,9 @@ class App extends React.Component {
             return <div>loading data...</div>
         } else {
             return (
-                <AppContainer id={"AppContainer"} >
+                <div>
                     <Window data={this.state.productData.photos} />
-                </AppContainer>
+                </div>
             )
         }
     }
