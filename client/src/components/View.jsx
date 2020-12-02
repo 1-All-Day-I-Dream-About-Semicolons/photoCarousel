@@ -71,7 +71,7 @@ const CouponCode = styled.div`
     font-family: AdihausDIN, Helvetica, Arial, sans-serif;
     transform: rotate(-90deg);
     position: absolute;
-    right: -90%;
+    right: 10%;
     bottom: 85%;
     font-family: AdihausDIN, Helvetica, Arial, sans-serif;
 `;

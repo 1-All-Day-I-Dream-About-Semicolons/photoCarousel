@@ -16,11 +16,9 @@ class App extends React.Component {
         var pathname = window.location.pathname;
         pathname = pathname.split('/');
         var id = pathname[2];
-        console.log(window.location);
-        console.log(id);
         
         this.state = {
-            productId: id,
+            productId: id || 1,
             isLoading: true
         }
         

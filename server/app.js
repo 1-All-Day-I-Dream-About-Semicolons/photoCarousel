@@ -7,7 +7,7 @@ const db = require('../db/index.js');
 
 app.use(morgan('dev'));
 app.use('/photos/:id', express.static(__dirname + '/../client/dist'));
-// app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(__dirname + '/../client/dist'));
 
 // app.get('*/:id/photos', (req, res) => {
 //     db.product.find((err, data) => {
@@ -19,7 +19,7 @@ app.use('/photos/:id', express.static(__dirname + '/../client/dist'));
 //     });
 // });
 
-app.get('*/:id/photos', (req, res) => {
+app.get('/api/:id/photos', (req, res) => {
     var id = req.params.id;
     if (id > 100 || id < 1) {
         res.sendStatus(404);
