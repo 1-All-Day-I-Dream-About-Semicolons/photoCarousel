@@ -15,10 +15,12 @@ class App extends React.Component {
 
         var pathname = window.location.pathname;
         pathname = pathname.split('/');
+        console.log(pathname);
         var id = pathname[2];
+        console.log(id);
         
         this.state = {
-            productId: id || 1,
+            productId: id,
             isLoading: true
         }
         
@@ -32,7 +34,8 @@ class App extends React.Component {
     fetch (id) {
         console.log('id in fetch:');
         console.log(id);
-        axios.get(`${id}/photos`)
+        const condId = id || 1;
+        axios.get(`/api/photos/${condId}`)
         .then((res) => {
             var data = res.data[0];
             console.log('data:');
