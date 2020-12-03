@@ -15,8 +15,8 @@ const LeftButton = styled.button`
     margin: 0 1em;
     padding: 0.25em 1em;
     position: absolute;
-    bottom: 50%;
-    right: 85%;
+    bottom: 30%;
+    right: 90%;
 `;
 
 const RightButton = styled.button`
@@ -29,8 +29,8 @@ const RightButton = styled.button`
     margin: 0 1em;
     padding: 0.25em 1em;
     position: absolute;
-    bottom: 50%;
-    right: 10%;
+    bottom: 30%;
+    right: 50%;
 `;
 
 const MainView = styled.div`
@@ -71,7 +71,7 @@ const CouponCode = styled.div`
     font-family: AdihausDIN, Helvetica, Arial, sans-serif;
     transform: rotate(-90deg);
     position: absolute;
-    right: 10%;
+    right: 50%;
     bottom: 85%;
     font-family: AdihausDIN, Helvetica, Arial, sans-serif;
 `;
